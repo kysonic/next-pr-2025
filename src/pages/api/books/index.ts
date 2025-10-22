@@ -1,13 +1,20 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type { User } from '@/entities/User';
-import type { Nullable } from '@/types/utils';
+import type { ApiResponse } from '@/types/common';
+import type { Book } from '@/entities/Book';
+
+export interface BooksResponse extends ApiResponse {
+    books?: Book[];
+}
 
 export default function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Nullable<User>>,
+    res: NextApiResponse<BooksResponse>,
 ) {
-    res.status(200).json(
-        JSON.parse((req?.headers?.['x-user'] as string) ?? 'null'),
-    );
+    if (req.method !== 'GET') {
+        return res.status(405).json({
+            success: false,
+            message: 'Method Not Allowed. Only POST requests are allowed.',
+        });
+    }
 }
