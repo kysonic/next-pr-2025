@@ -1,11 +1,9 @@
 import jwt from 'jsonwebtoken';
 import { config } from '@/shared/config';
+import type { User } from '@/entities/User';
+import type { Nullable } from '@/types/utils';
 
-export interface JwtPayload {
-    userId: string;
-    email: string;
-    role?: string;
-}
+export interface JwtPayload extends User {}
 
 export class JwtService {
     constructor(
@@ -28,7 +26,7 @@ export class JwtService {
         }
     }
 
-    decodeToken(token: string): JwtPayload | null {
+    decodeToken(token: string): Nullable<JwtPayload> {
         try {
             return jwt.decode(token) as JwtPayload;
         } catch {

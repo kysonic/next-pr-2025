@@ -3,17 +3,15 @@ import { loginSchema } from '@/shared/validation';
 import { handleZodSchema, ZodValidationError } from '@/shared/errors';
 import { jwtService } from '@/shared/jwt';
 import { cookieService } from '@/shared/cookie';
+import type { ApiResponse, ApiError } from '@/types/common';
 
-type Response = {
-    success: boolean;
-    message?: string;
-    errors?: Record<string, { field: string; message: string }>;
+export interface AuthLoginResponse extends ApiResponse, ApiError {
     access_token?: string;
-};
+}
 
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Response>,
+    res: NextApiResponse<AuthLoginResponse>,
 ) {
     if (req.method !== 'POST') {
         return res.status(405).json({
@@ -31,7 +29,7 @@ export default async function handler(
         console.log('Create DB record, etc', email, password);
 
         const token = jwtService.generateToken({
-            userId: String(Math.floor(Math.random() * 100) + 1),
+            userId: Math.floor(Math.random() * 100) + 1,
             email: email,
             role: 'admin',
         });

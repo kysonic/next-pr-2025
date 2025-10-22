@@ -15,7 +15,7 @@ Simple Next JS application created only in learning purposes like a reminder of 
 
 - [X]  Register
 - [X]  Login
-- [ ]  user/me
+- [X]  user/me
 - [ ]  Books
 - [ ]  One book
 - [ ]  Add to cart
