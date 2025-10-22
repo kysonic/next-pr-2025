@@ -1,0 +1,6 @@
+[
+    {
+        "key": "shift+alt+cmd+p",
+        "command": "biome.format" // nope Prettier - 1 Biome - 0
+    }
+]
