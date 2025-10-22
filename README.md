@@ -1,40 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+## Next Book Shop
 
-## Getting Started
+Simple Next JS application created only in learning purposes like a reminder of Next.js page router.
 
-First, run the development server:
+### Сonscious decisions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- No architecture - so how it is overhead.
+- No real backend - only mock API. 
+- MobX as state manager to check v6 and current ecosystem (Is there some API cacher like rtk query?!)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### TODO
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+**Mock API**
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- [X]  Register
+- [ ]  Login
+- [ ]  user/me
+- [ ]  Books
+- [ ]  One book
+- [ ]  Add to cart
+- [ ]  Add to favorite
+- [ ]  Checkout
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+**App**
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Auth
 
-## Learn More
+- [ ]  Layout
+- [ ]  Auth Register
+- [ ]  Auth Login
+- [ ]  Auth Check
+- [ ]  Auth Private Routes
 
-To learn more about Next.js, take a look at the following resources:
+Layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+- [ ]  Header
+- [ ]  Footer
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Books 
 
-## Deploy on Vercel
+- [ ]  Get books
+- [ ]  Render books cards
+- [ ]  Add to card
+- [ ]  Add to favorite
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Book 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- [ ]  Book detail page
+- [ ]  Add to card
+- [ ]  Add to favorite
+
+Cart
+
+- [ ]  Card List
+- [ ]  Checkout
