@@ -21,6 +21,19 @@ export const passwordSchema = z.object({
         ),
 });
 
-export const registerSchema = emailSchema.merge(passwordSchema);
+export const confirmPassword = z.object({
+    confirmPassword: z.string(),
+});
 
+export const registerSchema = emailSchema
+    .merge(passwordSchema)
+    .merge(confirmPassword)
+    .refine((data) => data.password === data.confirmPassword, {
+        message: "Passwords don't match",
+        path: ['confirmPassword'],
+    });
 export type RegisterSchemaType = z.infer<typeof registerSchema>;
+
+// Same but it could be changed over development
+export const loginSchema = emailSchema.merge(passwordSchema);
+export type LoginSchemaType = z.infer<typeof loginSchema>;

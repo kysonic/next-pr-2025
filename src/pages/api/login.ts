@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { registerSchema } from '@/shared/validation';
+import { loginSchema } from '@/shared/validation';
 import { handleZodSchema, ZodValidationError } from '@/shared/errors';
 import { jwtService } from '@/shared/jwt';
 import { cookieService } from '@/shared/cookie';
@@ -24,7 +24,7 @@ export default async function handler(
 
     try {
         const { email, password } = await handleZodSchema(
-            registerSchema,
+            loginSchema,
             req.body ?? {},
         );
 

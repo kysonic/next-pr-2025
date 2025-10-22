@@ -7,6 +7,7 @@ Simple Next JS application created only in learning purposes like a reminder of 
 - No architecture - so how it is overhead.
 - No real backend - only mock API. 
 - MobX as state manager to check v6 and current ecosystem (Is there some API cacher like rtk query?!)
+- Check Biome (something new)
 
 ### TODO
 
