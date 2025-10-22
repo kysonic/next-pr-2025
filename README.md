@@ -14,7 +14,7 @@ Simple Next JS application created only in learning purposes like a reminder of 
 **Mock API**
 
 - [X]  Register
-- [ ]  Login
+- [X]  Login
 - [ ]  user/me
 - [ ]  Books
 - [ ]  One book
