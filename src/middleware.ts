@@ -1,5 +1,6 @@
 import { NextResponse, NextRequest } from 'next/server';
-import { jwtService } from './shared/jwt';
+import { jwtService } from '@/shared/jwt';
+import { config as appConfig } from '@/shared/config';
 
 export function middleware(request: NextRequest) {
     const accessToken = request.cookies.get('access_token')?.value;
@@ -18,6 +19,27 @@ export function middleware(request: NextRequest) {
         );
 
         return response;
+    } else {
+        const path = new URL(request.url).pathname;
+
+        if (appConfig.protectedRoutes.includes(path)) {
+            // Api
+            if (path.includes('/api')) {
+                return NextResponse.json(
+                    {
+                        success: false,
+                        message: 'Forbidden Resource',
+                    },
+                    {
+                        status: 403,
+                    },
+                );
+            }
+            // Pages
+            else {
+                return NextResponse.redirect('/login');
+            }
+        }
     }
 
     return NextResponse.next();

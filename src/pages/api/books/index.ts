@@ -17,4 +17,6 @@ export default function handler(
             message: 'Method Not Allowed. Only POST requests are allowed.',
         });
     }
+
+    res.end('books');
 }

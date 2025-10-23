@@ -5,4 +5,5 @@ export const config = {
             expiresIn: 60 * 60 * 24 * 7,
         },
     },
+    protectedRoutes: ['/api/books'],
 };
