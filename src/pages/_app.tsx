@@ -6,16 +6,17 @@ import MainLayout from '@/components/layouts/MainLayout';
 import '@/styles/globals.css';
 
 type NextPageWithLayout = NextPage & {
-  getLayout?: (page: ReactElement) => ReactNode
-}
+    getLayout?: (page: ReactElement) => ReactNode;
+};
 
 type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
-}
+    Component: NextPageWithLayout;
+};
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  // Use the layout defined at the page level, if available
-  const getLayout = Component.getLayout ?? ((page) => <MainLayout>{page}</MainLayout>)
+    // Use the layout defined at the page level, if available
+    const getLayout =
+        Component.getLayout ?? ((page) => <MainLayout>{page}</MainLayout>);
 
-  return getLayout(<Component {...pageProps} />)
+    return getLayout(<Component {...pageProps} />);
 }

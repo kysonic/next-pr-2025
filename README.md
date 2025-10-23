@@ -29,8 +29,8 @@ Auth
 - [ ]  Layout
 - [ ]  Auth Register
 - [ ]  Auth Login
-- [ ]  Auth Check
-- [ ]  Auth Private Routes
+- [X]  Auth Check
+- [X]  Auth Private Routes
 
 Layout
 

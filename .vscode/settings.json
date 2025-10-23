@@ -1,30 +1,23 @@
 {
-  "editor.defaultFormatter": "biomejs.biome",
-  "[javascript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "tailwindCSS.classAttributes": [
-    "class",
-    "className",
-    "theme"
-  ],
-  "tailwindCSS.experimental.classRegex": [
-    [
-      "twMerge\\(([^)]*)\\)",
-      "[\"'`]([^\"'`]*).*?[\"'`]"
-    ],
-    [
-      "createTheme(?:<\\w+>)?\\s*\\(([^)]*)\\)",
-      "{?\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?}?"
+    "editor.defaultFormatter": "biomejs.biome",
+    "[javascript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "tailwindCSS.classAttributes": ["class", "className", "theme"],
+    "tailwindCSS.experimental.classRegex": [
+        ["twMerge\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+        [
+            "createTheme(?:<\\w+>)?\\s*\\(([^)]*)\\)",
+            "{?\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?}?"
+        ]
     ]
-  ]
 }
