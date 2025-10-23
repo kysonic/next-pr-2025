@@ -1,5 +1,5 @@
 import { type SerializeOptions, serialize } from 'cookie';
-import { config } from '@/shared/config';
+import { appConfig } from '@/shared/config';
 
 class CookieService {
     constructor(private commonDefaults: SerializeOptions) {}
@@ -8,7 +8,7 @@ class CookieService {
         return serialize('access_token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            maxAge: config.auth.token.expiresIn,
+            maxAge: appConfig.auth.token.expiresIn,
             ...this.commonDefaults,
             ...options,
         });

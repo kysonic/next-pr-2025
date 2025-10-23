@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { config } from '@/shared/config';
+import { appConfig } from '@/shared/config';
 import type { User } from '@/entities/User';
 import type { Nullable } from '@/types/utils';
 
@@ -14,7 +14,7 @@ export class JwtService {
     generateToken(payload: JwtPayload): string {
         return jwt.sign(payload, this.secret, {
             expiresIn: this.expiresIn,
-            issuer: config.appName,
+            issuer: appConfig.appName,
         });
     }
 
@@ -37,5 +37,5 @@ export class JwtService {
 
 export const jwtService = new JwtService(
     process.env.JWT_SECRET,
-    config.auth.token.expiresIn,
+    appConfig.auth.token.expiresIn,
 );

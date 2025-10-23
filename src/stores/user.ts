@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { autorun, makeAutoObservable } from 'mobx';
 import type { User } from '@/entities/User';
 import type { Nullable } from '@/types/utils';
 

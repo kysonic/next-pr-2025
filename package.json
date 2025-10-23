@@ -10,6 +10,7 @@
         "format": "biome format --write"
     },
     "dependencies": {
+        "@hookform/resolvers": "^5.2.2",
         "flowbite-react": "^0.12.9",
         "jsonwebtoken": "^9.0.2",
         "mobx": "^6.15.0",
@@ -17,6 +18,7 @@
         "next": "15.5.6",
         "react": "19.1.0",
         "react-dom": "19.1.0",
+        "react-hook-form": "^7.65.0",
         "zod": "^4.1.12"
     },
     "devDependencies": {

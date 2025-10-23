@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from 'next/server';
 import { jwtService } from '@/shared/jwt';
-import { config as appConfig } from '@/shared/config';
+import { appConfig } from '@/shared/config';
 
 export function middleware(request: NextRequest) {
     const accessToken = request.cookies.get('access_token')?.value;
@@ -38,14 +38,12 @@ export function middleware(request: NextRequest) {
             }
             // Pages
             else {
-                return NextResponse.redirect('/login');
+                return NextResponse.redirect(
+                    new URL('/auth/login', request.url),
+                );
             }
         }
     }
 
     return NextResponse.next();
 }
-
-export const config = {
-    matcher: '/api/:path*',
-};
