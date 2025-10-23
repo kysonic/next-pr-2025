@@ -1,30 +1,23 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { ApiResponse } from '@/types/common';
-import type { Book } from '@/entities/Book';
-import { getBooks } from '@/data/books';
 
-export interface BooksResponse extends ApiResponse {
-    books?: Book[];
+export interface CheckoutResponse extends ApiResponse {
+    id?: number;
 }
 
 export default function handler(
     req: NextApiRequest,
-    res: NextApiResponse<BooksResponse>,
+    res: NextApiResponse<CheckoutResponse>,
 ) {
-    if (req.method !== 'GET') {
+    if (req.method !== 'POST') {
         return res.status(405).json({
             success: false,
             message: 'Method Not Allowed. Only POST requests are allowed.',
         });
     }
 
-    // Go to database and get books (no paging here)
-    const books = getBooks();
-
-    res.json({
+    return res.json({
         success: true,
-        books,
-        total: books.length,
     });
 }

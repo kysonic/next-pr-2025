@@ -1,6 +1,7 @@
 export interface ApiResponse {
     success: boolean;
     message?: string;
+    total?: number;
 }
 
 export interface ApiError {

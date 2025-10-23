@@ -9,6 +9,7 @@ export function middleware(request: NextRequest) {
         const response = NextResponse.next();
         const token = jwtService.decodeToken(accessToken);
 
+        // Middleware works in different thread so Async Local Storage is not available (and Edge!!!)
         response.headers.set(
             'x-user',
             JSON.stringify({

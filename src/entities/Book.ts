@@ -9,9 +9,6 @@ export interface Book {
     publishedDate: Date;
     publisher: string;
     pages: number;
-    language: string;
-    stock: number;
-    categories: string[];
     rating: number;
     createdAt: Date;
     updatedAt: Date;

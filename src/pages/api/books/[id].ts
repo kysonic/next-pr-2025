@@ -2,15 +2,19 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { ApiResponse } from '@/types/common';
 import type { Book } from '@/entities/Book';
-import { getBooks } from '@/data/books';
+import { getBook } from '@/data/books';
 
-export interface BooksResponse extends ApiResponse {
-    books?: Book[];
+export interface BookResponse extends ApiResponse {
+    book?: Book;
+}
+
+interface QueryParams {
+    id: string | string[];
 }
 
 export default function handler(
     req: NextApiRequest,
-    res: NextApiResponse<BooksResponse>,
+    res: NextApiResponse<BookResponse>,
 ) {
     if (req.method !== 'GET') {
         return res.status(405).json({
@@ -19,12 +23,12 @@ export default function handler(
         });
     }
 
+    const { id } = req.query as unknown as QueryParams;
     // Go to database and get books (no paging here)
-    const books = getBooks();
+    const book = getBook(+id);
 
     res.json({
         success: true,
-        books,
-        total: books.length,
+        book,
     });
 }

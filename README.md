@@ -16,11 +16,11 @@ Simple Next JS application created only in learning purposes like a reminder of 
 - [X]  Register
 - [X]  Login
 - [X]  user/me
-- [ ]  Books
-- [ ]  One book
-- [ ]  Add to cart
-- [ ]  Add to favorite
-- [ ]  Checkout
+- [X]  Books
+- [X]  One book
+- [X]  Add to cart
+- [x]  Add to favorite
+- [x]  Checkout
 
 **App**
 

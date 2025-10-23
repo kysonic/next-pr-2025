@@ -10,7 +10,6 @@
         "format": "biome format --write"
     },
     "dependencies": {
-        "faker": "^6.6.6",
         "jsonwebtoken": "^9.0.2",
         "next": "15.5.6",
         "react": "19.1.0",
@@ -19,6 +18,7 @@
     },
     "devDependencies": {
         "@biomejs/biome": "2.2.0",
+        "@faker-js/faker": "^10.1.0",
         "@tailwindcss/postcss": "^4",
         "@types/jsonwebtoken": "^9.0.10",
         "@types/node": "^20",
