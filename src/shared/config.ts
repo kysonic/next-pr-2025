@@ -8,8 +8,11 @@ export const appConfig = {
     protectedRoutes: ['/api/books', '/api/cart', '/'],
     apiRoutes: {
         login: '/api/auth/login',
+        logout: '/api/auth/logout',
+        userMe: '/api/auth/me',
     },
     routes: {
         home: '/',
+        login: '/auth/login',
     },
 };

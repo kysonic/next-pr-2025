@@ -11,6 +11,9 @@ export class AuthStore {
     // Login
     isLoginLoading = false;
     loginServerError = '';
+    // Logout
+    isLogoutLoading = false;
+    logoutServerError = '';
     // Me
     isMeLoading = false;
     meServerError = '';
@@ -19,8 +22,12 @@ export class AuthStore {
         makeAutoObservable(this);
     }
 
-    setUser(user: User) {
+    setUser(user: Nullable<User>) {
         this.user = user;
+    }
+
+    suspenseLogoutServerError() {
+        this.logoutServerError = '';
     }
 
     async login(payload: LoginSchemaType) {
@@ -36,6 +43,21 @@ export class AuthStore {
             }
         } finally {
             this.isLoginLoading = false;
+        }
+    }
+
+    async logout() {
+        try {
+            this.isLogoutLoading = true;
+            await api.logout();
+            this.setUser(null);
+        } catch (err) {
+            if (ErrorGuard(err)) {
+                this.logoutServerError = err.message;
+                throw err;
+            }
+        } finally {
+            this.isLogoutLoading = false;
         }
     }
 

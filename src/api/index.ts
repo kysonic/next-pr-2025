@@ -1,12 +1,14 @@
 import type { AuthLoginResponse } from '@/pages/api/auth/login';
+import type { AuthLogoutResponse } from '@/pages/api/auth/logout';
 import type { UserMeResponse } from '@/pages/api/auth/me';
+import { appConfig } from '@/shared/config';
 import type { LoginSchemaType } from '@/shared/validation';
 
 class BaseApi {
-    async post(url: string, body: object) {
+    async post(url: string, body?: object) {
         const response = await fetch(url, {
             method: 'POST',
-            body: JSON.stringify(body),
+            body: body ? JSON.stringify(body) : null,
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -37,11 +39,15 @@ class BaseApi {
 
 export class NextBookShopApi extends BaseApi {
     async login(body: LoginSchemaType): Promise<AuthLoginResponse> {
-        return await this.post('/api/auth/login', body);
+        return await this.post(appConfig.apiRoutes.login, body);
+    }
+
+    async logout(): Promise<AuthLogoutResponse> {
+        return await this.post(appConfig.apiRoutes.logout);
     }
 
     async me(): Promise<UserMeResponse> {
-        return await this.get('/api/auth/me');
+        return await this.get(appConfig.apiRoutes.userMe);
     }
 }
 
