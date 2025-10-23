@@ -24,15 +24,16 @@ export default function MainHeader() {
                     Next Book Shop
                 </span>
             </NavbarBrand>
-            <NavbarToggle />
-            <NavbarCollapse>
+            <div className="flex md:order-2">
+                <ProfileMini />
+            </div>
+            <NavbarCollapse className="items-center">
                 <NavbarLink as={Link} href="/">
                     Home
                 </NavbarLink>
                 <NavbarLink as={Link} href="/cart">
                     Cart
                 </NavbarLink>
-                <ProfileMini />
             </NavbarCollapse>
         </Navbar>
     );

@@ -1,3 +1,5 @@
+import type { AuthLoginResponse } from '@/pages/api/auth/login';
+import type { UserMeResponse } from '@/pages/api/auth/me';
 import type { LoginSchemaType } from '@/shared/validation';
 
 class BaseApi {
@@ -11,6 +13,18 @@ class BaseApi {
             credentials: 'include',
         });
 
+        return this.handleResponse(response);
+    }
+
+    async get(url: string) {
+        const response = await fetch(url, {
+            credentials: 'include',
+        });
+
+        return this.handleResponse(response);
+    }
+
+    async handleResponse(response: Response) {
         if (response.ok) {
             return await response.json();
         } else {
@@ -22,8 +36,12 @@ class BaseApi {
 }
 
 export class NextBookShopApi extends BaseApi {
-    async login(body: LoginSchemaType) {
+    async login(body: LoginSchemaType): Promise<AuthLoginResponse> {
         return await this.post('/api/auth/login', body);
+    }
+
+    async me(): Promise<UserMeResponse> {
+        return await this.get('/api/auth/me');
     }
 }
 

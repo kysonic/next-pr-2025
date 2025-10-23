@@ -19,7 +19,7 @@ function LoginForm() {
 
     const onSubmit = async (values: LoginSchemaType) => {
         await authStore.login(values);
-        // Show toast!!! 
+        // Show toast!!!
         router.push(appConfig.routes.home);
     };
 
@@ -63,7 +63,9 @@ function LoginForm() {
                     <Checkbox id="remember" />
                     <Label htmlFor="remember">Remember me</Label>
                 </div>
-                <Button className="cursor-pointer" type="submit">Submit</Button>
+                <Button className="cursor-pointer" type="submit">
+                    Submit
+                </Button>
             </form>
         </Card>
     );
