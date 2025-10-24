@@ -1,5 +1,5 @@
 import { api } from '@/api';
-import type { LoginSchemaType } from '@/shared/validation';
+import type { LoginSchemaType, RegisterSchemaType } from '@/shared/validation';
 import { ErrorGuard } from '@/types/common';
 import { makeAutoObservable } from 'mobx';
 import type { Nullable } from '@/types/utils';
@@ -11,6 +11,9 @@ export class AuthStore {
     // Login
     isLoginLoading = false;
     loginServerError = '';
+    // Register
+    isRegisterLoading = false;
+    registerServerError = '';
     // Logout
     isLogoutLoading = false;
     logoutServerError = '';
@@ -43,6 +46,22 @@ export class AuthStore {
             }
         } finally {
             this.isLoginLoading = false;
+        }
+    }
+
+    async register(payload: RegisterSchemaType) {
+        try {
+            this.isRegisterLoading = true;
+            const result = await api.register(payload);
+            if (UserGuard(result.user)) {
+                this.setUser(result.user);
+            }
+        } catch (err) {
+            if (ErrorGuard(err)) {
+                this.registerServerError = err.message;
+            }
+        } finally {
+            this.isRegisterLoading = false;
         }
     }
 

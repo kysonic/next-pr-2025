@@ -4,9 +4,10 @@ import { handleZodSchema, ZodValidationError } from '@/shared/errors';
 import { jwtService } from '@/shared/jwt';
 import { cookieService } from '@/shared/cookie';
 import type { ApiError, ApiResponse } from '@/types/common';
+import type { User } from '@/entities/User';
 
 export interface AuthRegisterResponse extends ApiResponse, ApiError {
-    access_token?: string;
+    user?: User;
 }
 
 export default async function handler(
@@ -28,18 +29,20 @@ export default async function handler(
 
         console.log('Create DB record, etc', email, password);
 
-        const token = jwtService.generateToken({
+        const user = {
             userId: Math.floor(Math.random() * 100) + 1,
             email: email,
             role: 'admin',
-        });
+        } as User;
+
+        const token = jwtService.generateToken(user);
 
         const accessTokenCookie = cookieService.createAccessTokenCookie(token);
         res.setHeader('Set-Cookie', [accessTokenCookie]);
 
         res.status(201).json({
             success: true,
-            access_token: token,
+            user,
         });
     } catch (error) {
         if (error instanceof ZodValidationError) {

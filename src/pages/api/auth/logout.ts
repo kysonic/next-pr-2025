@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { ApiResponse, ApiError } from '@/types/common';
+import { cookieService } from '@/shared/cookie';
 
 export interface AuthLogoutResponse extends ApiResponse, ApiError {}
 
@@ -15,10 +16,10 @@ export default async function handler(
     }
 
     try {
-        res.setHeader(
-            'Set-Cookie',
-            `accessToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; Secure`,
-        );
+        const accessTokenCookie = cookieService.createAccessTokenCookie('', {
+            maxAge: 0,
+        });
+        res.setHeader('Set-Cookie', [accessTokenCookie]);
 
         res.status(201).json({
             success: true,

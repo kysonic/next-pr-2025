@@ -26,16 +26,16 @@ Simple Next JS application created only in learning purposes like a reminder of 
 
 Auth
 
-- [ ]  Layout
-- [ ]  Auth Register
-- [ ]  Auth Login
+- [X]  Layout
+- [X]  Auth Register
+- [X]  Auth Login
 - [X]  Auth Check
 - [X]  Auth Private Routes
 
 Layout
 
-- [ ]  Header
-- [ ]  Footer
+- [X]  Header
+- [X]  Footer
 
 Books 
 
