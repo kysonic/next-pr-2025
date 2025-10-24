@@ -20,7 +20,7 @@ export default function handler(
     }
 
     // Go to database and get books (no paging here)
-    const books = getBooks();
+    const books = getBooks(9);
 
     res.json({
         success: true,

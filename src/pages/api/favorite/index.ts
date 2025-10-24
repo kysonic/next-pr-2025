@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { setTimeout as delay } from 'node:timers/promises';
 import type { ApiResponse } from '@/types/common';
 import type { Book } from '@/entities/Book';
 import { getBooks } from '@/data/books';
@@ -11,7 +12,7 @@ export interface FavoriteResponse extends ApiResponse {
     books?: Book[];
 }
 
-export default function handler(
+export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<FavoriteResponse>,
 ) {
@@ -30,6 +31,7 @@ export default function handler(
                 message: 'Please provide id to add to favorite',
             });
         }
+        await delay(1000);
         // Imitate like we added a book to favorite
         return res.json({
             success: true,

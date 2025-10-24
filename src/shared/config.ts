@@ -11,6 +11,8 @@ export const appConfig = {
         logout: '/api/auth/logout',
         userMe: '/api/auth/me',
         getBooks: '/api/books',
+        favorite: '/api/favorite',
+        addToCart: '/api/cart',
     },
     routes: {
         home: '/',

@@ -28,6 +28,14 @@ export class BooksStore {
             this.isGetBooksLoading = false;
         }
     }
+
+    async favorite(id: number) {
+        await api.favorite(id);
+    }
+
+    async toCart(id: number) {
+        await api.addToCart(id);
+    }
 }
 
 export const booksStore = new BooksStore();
