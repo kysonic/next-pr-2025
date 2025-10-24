@@ -24,9 +24,11 @@ export default function Layout({
             <div className="main-layout">
                 <MainHeader />
 
-                <main className="main">{children}</main>
+                <main className="main flex items-center justify-center p-10">
+                    {children}
+                </main>
 
-                <footer className="footer">
+                <footer className="footer p-2 mt-2">
                     <p>&copy; 2024 My Website. All rights reserved.</p>
                 </footer>
             </div>

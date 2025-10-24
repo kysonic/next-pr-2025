@@ -40,8 +40,8 @@ Layout
 Books 
 
 - [ ]  Get books
-- [ ]  Render books cards
-- [ ]  Add to card
+- [ ]  Books page
+- [ ]  Add to cart
 - [ ]  Add to favorite
 
 Book 
@@ -52,5 +52,5 @@ Book
 
 Cart
 
-- [ ]  Card List
+- [ ]  Cart List
 - [ ]  Checkout

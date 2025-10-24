@@ -2,6 +2,7 @@ import type { AuthLoginResponse } from '@/pages/api/auth/login';
 import type { AuthLogoutResponse } from '@/pages/api/auth/logout';
 import type { UserMeResponse } from '@/pages/api/auth/me';
 import { AuthRegisterResponse } from '@/pages/api/auth/register';
+import { BooksResponse } from '@/pages/api/books';
 import { appConfig } from '@/shared/config';
 import type { LoginSchemaType, RegisterSchemaType } from '@/shared/validation';
 
@@ -53,6 +54,10 @@ export class NextBookShopApi extends BaseApi {
 
     async me(): Promise<UserMeResponse> {
         return await this.get(appConfig.apiRoutes.userMe);
+    }
+
+    async getBooks(): Promise<BooksResponse> {
+        return await this.get(appConfig.apiRoutes.getBooks);
     }
 }
 

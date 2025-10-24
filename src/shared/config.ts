@@ -10,6 +10,7 @@ export const appConfig = {
         login: '/api/auth/login',
         logout: '/api/auth/logout',
         userMe: '/api/auth/me',
+        getBooks: '/api/books',
     },
     routes: {
         home: '/',
