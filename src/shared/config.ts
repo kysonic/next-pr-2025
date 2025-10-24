@@ -13,6 +13,7 @@ export const appConfig = {
         getBooks: '/api/books',
         favorite: '/api/favorite',
         addToCart: '/api/cart',
+        getBook: (id: number) => `/api/books/${id}`,
     },
     routes: {
         home: '/',

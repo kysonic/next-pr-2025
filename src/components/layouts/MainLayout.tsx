@@ -26,7 +26,7 @@ export default function Layout({
 
                 <main className="main">{children}</main>
 
-                <footer className="footer p-2 mt-2">
+                <footer className="footer px-10 py-5 mt-2">
                     <p>&copy; 2025 My Website. All rights reserved.</p>
                 </footer>
             </div>

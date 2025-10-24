@@ -4,11 +4,16 @@ import { makeAutoObservable } from 'mobx';
 import type { Book } from '@/entities/Book';
 
 export class BooksStore {
+    book?: Book;
     books?: Book[] = [];
 
     // GetBooks
     isGetBooksLoading = false;
     getBooksServerError = '';
+
+    // GetBook
+    isGetBookLoading = false;
+    getBookServerError = '';
 
     constructor() {
         makeAutoObservable(this);
@@ -26,6 +31,21 @@ export class BooksStore {
             }
         } finally {
             this.isGetBooksLoading = false;
+        }
+    }
+
+    async getBook(id: number) {
+        try {
+            this.isGetBookLoading = true;
+            const result = await api.getBook(id);
+
+            this.book = result.book;
+        } catch (err) {
+            if (ErrorGuard(err)) {
+                this.getBookServerError = err.message;
+            }
+        } finally {
+            this.isGetBookLoading = false;
         }
     }
 
