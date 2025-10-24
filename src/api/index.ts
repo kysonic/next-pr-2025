@@ -4,6 +4,8 @@ import type { UserMeResponse } from '@/pages/api/auth/me';
 import { AuthRegisterResponse } from '@/pages/api/auth/register';
 import { BooksResponse } from '@/pages/api/books';
 import { BookResponse } from '@/pages/api/books/[id]';
+import { CartResponse } from '@/pages/api/cart';
+import { CheckoutResponse } from '@/pages/api/checkout';
 import { FavoriteResponse } from '@/pages/api/favorite';
 import { appConfig } from '@/shared/config';
 import type { LoginSchemaType, RegisterSchemaType } from '@/shared/validation';
@@ -72,6 +74,14 @@ export class NextBookShopApi extends BaseApi {
 
     async addToCart(id: number): Promise<FavoriteResponse> {
         return await this.post(appConfig.apiRoutes.addToCart, { id });
+    }
+
+    async getCart(): Promise<CartResponse> {
+        return await this.get(appConfig.apiRoutes.getCart);
+    }
+
+    async checkout(id: number): Promise<CheckoutResponse> {
+        return await this.post(appConfig.apiRoutes.checkout, { id });
     }
 }
 

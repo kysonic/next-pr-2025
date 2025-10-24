@@ -19,7 +19,9 @@ type AppPropsWithLayout = AppProps & {
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     // Always run me on start to check auth state so how we use protected HTTP Only Cookie
     useEffect(() => {
-        authStore.me();
+        if (!authStore.user) {
+            authStore.me();
+        }
     }, []);
 
     // Use the layout defined at the page level, if available

@@ -5,7 +5,7 @@ export const appConfig = {
             expiresIn: 60 * 60 * 24 * 7,
         },
     },
-    protectedRoutes: ['/api/books', '/api/cart', '/'],
+    protectedRoutes: ['/api/books', '/api/cart', '/book/**', '/', '/cart'],
     apiRoutes: {
         login: '/api/auth/login',
         logout: '/api/auth/logout',
@@ -13,6 +13,8 @@ export const appConfig = {
         getBooks: '/api/books',
         favorite: '/api/favorite',
         addToCart: '/api/cart',
+        getCart: '/api/cart',
+        checkout: '/api/checkout',
         getBook: (id: number) => `/api/books/${id}`,
     },
     routes: {

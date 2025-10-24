@@ -6,14 +6,14 @@ import { getBooks } from '@/data/books';
 
 const METHODS = ['POST', 'GET'];
 
-export interface AddToCartResponse extends ApiResponse {
+export interface CartResponse extends ApiResponse {
     id?: number;
     books?: Book[];
 }
 
 export default function handler(
     req: NextApiRequest,
-    res: NextApiResponse<AddToCartResponse>,
+    res: NextApiResponse<CartResponse>,
 ) {
     if (!METHODS.includes(req.method ?? '')) {
         return res.status(405).json({

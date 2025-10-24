@@ -52,5 +52,5 @@ Book
 
 Cart
 
-- [ ]  Cart List
-- [ ]  Checkout
+- [X]  Cart List
+- [X]  Checkout
